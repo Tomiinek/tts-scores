@@ -93,5 +93,5 @@ class TorchMelSpectrogram(nn.Module):
         return mel
 
 
-def to_mel(wav):
-    return TorchMelSpectrogram()(wav.unsqueeze(0)).squeeze(0)
+def to_mel(wav, mel_norm_file='.data/mel_norms.pth'):
+    return TorchMelSpectrogram(mel_norm_file=mel_norm_file)(wav.unsqueeze(0)).squeeze(0)
